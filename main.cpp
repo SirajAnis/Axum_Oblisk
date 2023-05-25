@@ -2,9 +2,9 @@
 #include<GL/glut.h>
 
 void init() {
-	glClearColor(0.4, 0.8, 0.9, 1);//level side color
+	glClearColor(0.4, 0.8, 0.9, 1);
 	glMatrixMode(GL_PROJECTION);
-	glOrtho(-40, 40, -44, 44, -40, 40);
+	glOrtho(-40, 40, -44, 40, -40, 40);
 }
 
 void display() {
@@ -38,9 +38,16 @@ void display() {
 	glColor3f(0.4, 0.8, 0.9);
 	glTranslatef(2.2, -1.6, 0);
 	glutSolidCone(1, 2, 20, 20);
-	glTranslatef(-4.4, 0, 0);
-	glutSolidCone(1, 2, 20, 20);
+	//glTranslatef(-4.4, 0, 0);
+	//glutSolidCone(1, 2, 20, 20);
 	glPopMatrix();
+	glPushMatrix();
+	glColor3f(0.4, 0.8, 0.9);
+	glTranslatef(-6.48, 36.3, 0);
+	GLUquadricObj* objj2 = gluNewQuadric();
+	gluPartialDisk(objj2, 0, 0.7, 50, 90, 105, -180);
+	glPopMatrix();
+
 
 	glBegin(GL_QUADS);
 	glColor3f(0.680, 0.666, 0.669);//RS from levels
@@ -49,27 +56,6 @@ void display() {
 	glVertex2f(12, -44);
 	glVertex2f(12, -29);
 
-	//first
-	glColor3f(0.7, 0.8, 0.9);
-	glVertex2f(-34, -27);
-	glVertex2f(-34, -16);
-	glVertex2f(-32, -16);
-	glVertex2f(-32, -27);
-
-	glVertex2f(-34, -16);
-	glVertex2f(-33.3, -15);
-	glVertex2f(-32.6, -15);
-	glVertex2f(-32, -16);
-	//second
-	glVertex2f(-23, -27);
-	glVertex2f(-23, -3);
-	glVertex2f(-20, -3);
-	glVertex2f(-20, -27);
-
-	glVertex2f(-23, -3);
-	glVertex2f(-22.2, -1);
-	glVertex2f(-21, -1);
-	glVertex2f(-20, -3);
 	glEnd();
 
 	glLineWidth(3);
@@ -182,6 +168,68 @@ void display() {
 	glVertex2f(12, -44);
 	glVertex2f(12, -41);
 
+	//back small 1
+	glColor3f(0.720, 0.684, 0.684);
+	glVertex2f(-36.7, -24);
+	glVertex2f(-37, -12);
+	glVertex2f(-39, -12);
+	glVertex2f(-39.3, -24);
+
+	glVertex2f(-37, -12);
+	glVertex2f(-37.7, -11);
+	glVertex2f(-38.3, -11);
+	glVertex2f(-39, -12);
+	//back small 2
+	glVertex2f(-21.7, -24);
+	glVertex2f(-22, -9);
+	glVertex2f(-24, -9);
+	glVertex2f(-24.3, -24);
+
+	glVertex2f(-22, -9);
+	glVertex2f(-22.7, -8);
+	glVertex2f(-23.3, -8);
+	glVertex2f(-24, -9);
+	//back small 3
+	glVertex2f(9.7, -24);
+	glVertex2f(10, -7);
+	glVertex2f(12, -7);
+	glVertex2f(12.3, -24);
+
+	glVertex2f(10, -7);
+	glVertex2f(10.7, -6);
+	glVertex2f(11.3, -6);
+	glVertex2f(12, -7);
+	//back small 4
+	glVertex2f(25.7, -24);
+	glVertex2f(26, -11);
+	glVertex2f(28, -11);
+	glVertex2f(28.3, -24);
+
+	glVertex2f(26, -11);
+	glVertex2f(26.7, -10);
+	glVertex2f(27.3, -10);
+	glVertex2f(28, -11);
+	//first
+	glVertex2f(-29.7, -27.5);
+	glVertex2f(-30, -4);
+	glVertex2f(-33, -4);
+	glVertex2f(-33.3, -27.5);
+
+	/*glVertex2f(-30, -4);
+	glVertex2f(-31, -2);
+	glVertex2f(-32, -2);
+	glVertex2f(-33, -4);*/
+	//second
+	glVertex2f(-14.5, -27.5);
+	glVertex2f(-15, 0);
+	glVertex2f(-18, 0);
+	glVertex2f(-18.5, -27.5);
+
+	/*glVertex2f(-15, 0);
+	glVertex2f(-16, 2);
+	glVertex2f(-17, 2);
+	glVertex2f(-18, 0);*/
+
 	//third bigest
 	glColor3f(0.840, 0.722, 0.722);
 	glVertex2f(-8, -22);
@@ -189,35 +237,25 @@ void display() {
 	glVertex2f(-2.5, 36);
 	glVertex2f(-1, -22);
 	//fourth
-	glVertex2f(16, -27.5);
+	glVertex2f(15.4, -27.5);
 	glVertex2f(16, 3);
 	glVertex2f(19, 3);
-	glVertex2f(19, -27.5);
+	glVertex2f(19.6, -27.5);
 	/*
 	glVertex2f(10,6);
 	glVertex2f(11,8);
 	glVertex2f(12,8);
 	glVertex2f(13,6);*/
-	//back small 4
-	glVertex2f(24,-24);
-	glVertex2f(24, -6);
-	glVertex2f(26, -6);
-	glVertex2f(26, -24);
-
-	glVertex2f(24, -6);
-	glVertex2f(24.7, -5);
-	glVertex2f(25.3, -5);
-	glVertex2f(26, -6);
 	//fifth
-	glVertex2f(33, -27.5);
-	glVertex2f(33, 0);
-	glVertex2f(36.5, 0);
+	glVertex2f(32.5, -27.5);
+	glVertex2f(33, -2);
+	glVertex2f(36, -2);
 	glVertex2f(36.5, -27.5);
 
-	glVertex2f(33, 0);
-	glVertex2f(34, 2);
-	glVertex2f(35.7, 2);
-	glVertex2f(36.5, 0);
+	/*glVertex2f(33, -2);
+	glVertex2f(34, 0);
+	glVertex2f(35, 0);
+	glVertex2f(36, -2);*/
 
 	glEnd();
 	glColor3f(0.850, 0.842, 0.842);
@@ -345,10 +383,8 @@ void display() {
 	glVertex2f(-3.8, 35.5);
 	glVertex2f(-5.25, 35.1);
 	glVertex2f(-4, 35.1);
-
 	glVertex2f(-4, 35.1);
 	glVertex2f(-4, 32.45);
-
 	glVertex2f(-5.2, 35.1);
 	glVertex2f(-5.2, 32.2);
 	glVertex2f(-3.8, 35.5);
@@ -371,25 +407,20 @@ void display() {
 	glVertex2f(-3.8, 23.2);
 	glVertex2f(-5.25, 22.9);
 	glVertex2f(-4, 22.9);
-
 	glVertex2f(-4, 22.9);
 	glVertex2f(-4, 20.6);
-
 	glVertex2f(-5.2, 22.9);
 	glVertex2f(-5.2, 20.3);
 	glVertex2f(-3.8, 23.2);
 	glVertex2f(-3.8, 20.3);
 	glVertex2f(-5.25, 20.4);
 	glVertex2f(-3.8, 20.4);
-
 	glVertex2f(-5.24, 17.2);//hole 3
 	glVertex2f(-3.8, 17.2);
 	glVertex2f(-5.3, 16.9);
 	glVertex2f(-4, 16.9);
-
 	glVertex2f(-4, 16.9);
 	glVertex2f(-4, 14.6);
-
 	glVertex2f(-5.3, 16.9);
 	glVertex2f(-5.3, 14.3);
 	glVertex2f(-3.8, 17.2);
@@ -411,7 +442,7 @@ void display() {
 	glVertex2f(-5.3, 14.3);
 	glVertex2f(-3.8, 14.3);
 
-	///////////////////////////////////////////
+	/////////////////////////////////////////////////////////////////
 	glEnd();
 	glLineWidth(3);
 	glBegin(GL_LINES);
@@ -652,6 +683,16 @@ void display() {
 	glEnd();
 	glPushMatrix();
 	glColor3f(0.840, 0.722, 0.722);
+	glTranslatef(17.5, 3.5, 0);
+	glutSolidCone(1.5, 2, 20, 20);
+
+	glColor3f(0.840, 0.722, 0.722);
+	glTranslatef(17, -5.2, 0);
+	glutSolidCone(1.5, 2, 20, 20);
+	glPopMatrix();
+
+	glPushMatrix();
+	glColor3f(0.4, 0.8, 0.9);
 	glTranslatef(11.5, 3.5, 0);
 	glutSolidCone(1.5, 2, 20, 20);
 	glColor3f(0.640, 0.518, 0.543);
@@ -751,8 +792,21 @@ void display() {
 	glutSolidCone(0.42, 2, 20, 20);
 	glTranslatef(0.9, 0, 0);
 	glutSolidCone(0.42, 2, 20, 20);
-	glPushMatrix();
+	glPopMatrix();
 
+	glPushMatrix();
+	glColor3f(0.840, 0.722, 0.722);
+	glTranslatef(-16.5, 0, 0);
+	GLUquadricObj* objj = gluNewQuadric();
+	gluPartialDisk(objj, 0, 1.5, 50, 90, 90, -180);
+	glPopMatrix();
+
+	glPushMatrix();
+	glColor3f(0.840, 0.722, 0.722);
+	glTranslatef(-31.5, -4, 0);
+	GLUquadricObj* objj1 = gluNewQuadric();
+	gluPartialDisk(objj1, 0, 1.55, 50, 90, 90, -180);
+	glPopMatrix();
 	glFlush();
 }
 
