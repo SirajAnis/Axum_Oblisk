@@ -1,7 +1,8 @@
 # depslib dependency file v1.0
-1685014170 source:c:\users\siru\documents\3rd year 2 sem\graphics lab\axum_oblisk_proj\main.cpp
+1685100604 source:c:\users\siru\documents\3rd year 2 sem\graphics lab\axum_oblisk_proj\main.cpp
 	<windows.h>
 	<GL/glut.h>
+	<math.h>
 
 1426382128 c:\program files\codeblocks\mingw\include\gl\glut.h
 	"freeglut_std.h"

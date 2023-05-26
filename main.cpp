@@ -1,5 +1,6 @@
 #include<windows.h>
 #include<GL/glut.h>
+#include<math.h>
 
 void init() {
 	glClearColor(0.4, 0.8, 0.9, 1);
@@ -35,9 +36,9 @@ void display() {
 	glTranslatef(-4.58, 37.5, 0);
 	glutSolidCone(2, 2, 20, 20);
 
-	glColor3f(0.4, 0.8, 0.9);
-	glTranslatef(2.2, -1.6, 0);
-	glutSolidCone(1, 2, 20, 20);
+	//glColor3f(0.4, 0.8, 0.9);
+	//glTranslatef(2.35, -1.5, 0);
+	//glutSolidCone(1, 2, 20, 20);
 	//glTranslatef(-4.4, 0, 0);
 	//glutSolidCone(1, 2, 20, 20);
 	glPopMatrix();
@@ -375,6 +376,11 @@ void display() {
 	glVertex2f(-3.5, -12.5);
 	glVertex2f(-1.2, -12.5);
 
+	glVertex2f(-7.8, -18);//9
+	glVertex2f(-5.5, -18);
+	glVertex2f(-3.5, -18);
+	glVertex2f(-1.2, -18);
+
 	glEnd();
 
 	//glLineWidth(3);
@@ -405,45 +411,164 @@ void display() {
 	glVertex2f(-3.8, 26.3);
 	glVertex2f(-5.2, 23.2);//hole 3
 	glVertex2f(-3.8, 23.2);
-	glVertex2f(-5.25, 22.9);
+	glVertex2f(-5.25, 22.8);
+	glVertex2f(-4, 22.8);
 	glVertex2f(-4, 22.9);
-	glVertex2f(-4, 22.9);
-	glVertex2f(-4, 20.6);
+	glVertex2f(-4, 20.7);
 	glVertex2f(-5.2, 22.9);
 	glVertex2f(-5.2, 20.3);
 	glVertex2f(-3.8, 23.2);
 	glVertex2f(-3.8, 20.3);
 	glVertex2f(-5.25, 20.4);
 	glVertex2f(-3.8, 20.4);
-	glVertex2f(-5.24, 17.2);//hole 3
-	glVertex2f(-3.8, 17.2);
-	glVertex2f(-5.3, 16.9);
-	glVertex2f(-4, 16.9);
-	glVertex2f(-4, 16.9);
-	glVertex2f(-4, 14.6);
-	glVertex2f(-5.3, 16.9);
-	glVertex2f(-5.3, 14.3);
-	glVertex2f(-3.8, 17.2);
-	glVertex2f(-3.8, 14.3);
-	glVertex2f(-5.3, 14.3);
-	glVertex2f(-3.8, 14.3);
 	glVertex2f(-5.24, 17.2);//hole 4
 	glVertex2f(-3.8, 17.2);
-	glVertex2f(-5.3, 16.9);
-	glVertex2f(-4, 16.9);
-
+	glVertex2f(-5.3, 16.8);
+	glVertex2f(-4, 16.8);
 	glVertex2f(-4, 16.9);
 	glVertex2f(-4, 14.6);
-
 	glVertex2f(-5.3, 16.9);
 	glVertex2f(-5.3, 14.3);
 	glVertex2f(-3.8, 17.2);
 	glVertex2f(-3.8, 14.3);
 	glVertex2f(-5.3, 14.3);
 	glVertex2f(-3.8, 14.3);
+	glVertex2f(-5.24, 11.2);//hole 5
+	glVertex2f(-3.8, 11.2);
+	glVertex2f(-5.3, 10.8);
+	glVertex2f(-4, 10.8);
+	glVertex2f(-4, 10.9);
+	glVertex2f(-4, 8.6);
+	glVertex2f(-5.3, 10.9);
+	glVertex2f(-5.3, 8.3);
+	glVertex2f(-3.8, 11.2);
+	glVertex2f(-3.8, 8.3);
+	glVertex2f(-5.3, 8.3);
+	glVertex2f(-3.8, 8.3);
+	glVertex2f(-5.24, 5.2);//hole 6
+	glVertex2f(-3.8, 5.2);
+	glVertex2f(-5.3, 4.8);
+	glVertex2f(-4, 4.8);
+	glVertex2f(-4, 4.9);
+	glVertex2f(-4, 2.2);
+	glVertex2f(-5.3, 4.9);
+	glVertex2f(-5.3, 2);
+	glVertex2f(-3.8, 5.2);
+	glVertex2f(-3.8, 2);
+	glVertex2f(-5.3, 2);
+	glVertex2f(-3.8, 2);
+	glVertex2f(-5.24, -1.3);//hole 7
+	glVertex2f(-3.8, -1.3);
+    glVertex2f(-5.3, -1.7);
+	glVertex2f(-4, -1.7);
+	glVertex2f(-4, -1.8);
+	glVertex2f(-4, -4.3);
+	glVertex2f(-5.3, -1.6);
+	glVertex2f(-5.3, -4.5);
+	glVertex2f(-3.8, -1.3);
+	glVertex2f(-3.8, -4.5);
+	glVertex2f(-5.3, -4.5);
+	glVertex2f(-3.8, -4.5);
+	glVertex2f(-5.24, -7.8);//hole 8
+	glVertex2f(-3.8, -7.8);
+	glVertex2f(-5.3, -8.1);
+	glVertex2f(-4, -8.1);
+	glVertex2f(-4, -8.1);
+	glVertex2f(-4, -11);
+	glVertex2f(-5.3, -8.1);
+	glVertex2f(-5.3, -11.3);
+	glVertex2f(-3.8, -7.8);
+	glVertex2f(-3.8, -11.3);
+	glVertex2f(-5.3, -11.3);
+	glVertex2f(-3.8, -11.3);
 
-	/////////////////////////////////////////////////////////////////
 	glEnd();
+    //center on the longest oblisk
+    glColor3f(0.740, 0.629, 0.629);
+	glRectf(-5,32.5,-4.2,34.8);
+	glRectf(-5,26.5,-4.2,28.6);
+	glRectf(-5,20.7,-4.2,22.6);
+	glRectf(-5.2,14.6,-4.2,16.6);
+    glRectf(-5.2,8.6,-4.2,10.6);
+    glRectf(-5.2,2.3,-4.2,4.6);
+    glRectf(-5.2,-4.3,-4.2,-1.9);
+    glRectf(-5.2,-11,-4.2,-8.5);
+    glRectf(-5.25,-14.8,-3.7,-21.65);
+    glRectf(-4.7,-17,-4.3,-20);
+    glColor3f(0.600, 0.504, 0.504);
+    glRectf(-5,-16,-4,-21);
+    glColor3f(0.670, 0.543, 0.543);
+    glRectf(-4.7,-17,-4.3,-20);
+
+    //left side on the longest oblisk
+    glColor3f(0.74, 0.62, 0.62);
+    glRectf(-6.5,32.3,-5.65,35.4);
+    glRectf(-6.62,26.3,-5.7,29.7);
+    glRectf(-6.7,20.4,-5.7,23.7);
+    glRectf(-6.9,14.4,-5.75,17.8);
+    glRectf(-7,8.5,-5.75,11.8);
+    glRectf(-7.2,2.25,-5.75,5.8);
+    glRectf(-7.35,-4.35,-5.85,-0.7);
+    glRectf(-7.55,-11.25,-5.85,-7.4);
+    glRectf(-7.7,-17.55,-5.85,-14.4);
+    glRectf(-7.75,-21.65,-5.9,-18.4);
+    glColor3f(0,0,0);
+    glRectf(-7.4,-16.5,-6.1,-15.2);
+
+    //right side on the longest oblisk
+    glColor3f(0.74, 0.62, 0.62);
+    glRectf(-3.3,32.3,-2.6,35.4);
+    glRectf(-3.3,26.3,-2.45,29.7);
+    glRectf(-3.25,20.4,-2.25,23.7);
+    glRectf(-3.25,14.4,-2.15,17.8);
+    glRectf(-3.25,8.4,-2,11.8);
+    glRectf(-3.25,2.25,-1.75,5.8);
+    glRectf(-3.25,-4.35,-1.65,-0.75);
+    glRectf(-3.18,-11.25,-1.55,-7.4);
+    glRectf(-3.15,-17.55,-1.4,-14.4);
+    glRectf(-3.15,-21.65,-1.4,-18.3);
+
+	glLineWidth(2);
+	glBegin(GL_LINES);
+	glColor3f(0.840, 0.722, 0.722);//lines on the left side of the biggest
+	glVertex2f(-5.6, 35);
+	glVertex2f(-6.55, 35);
+	glVertex2f(-5.6, 29.2);
+	glVertex2f(-6.6, 29.2);
+	glVertex2f(-5.6, 23.2);
+	glVertex2f(-6.7, 23.2);
+	glVertex2f(-5.6, 17.3);
+	glVertex2f(-7, 17.3);
+	glVertex2f(-5.7, 11.3);
+	glVertex2f(-7.2, 11.3);
+	glVertex2f(-5.7, 5.3);
+	glVertex2f(-7.3, 5.3);
+	glVertex2f(-5.7, -1.3);
+	glVertex2f(-7.5, -1.3);
+	glVertex2f(-5.7, -8);
+	glVertex2f(-7.6, -8);
+	glColor3f(0.600, 0.504, 0.504);
+	glVertex2f(-5.35, -15.2);
+	glVertex2f(-3.6, -15.2);
+	glColor3f(0.840, 0.722, 0.722);//lines on the right side of the biggest
+	glVertex2f(-3.3, 35);
+	glVertex2f(-2.5, 35);
+	glVertex2f(-3.3, 29.2);
+	glVertex2f(-2.4, 29.2);
+	glVertex2f(-3.3, 23.2);
+	glVertex2f(-2.2, 23.2);
+	glVertex2f(-3.3, 17.3);
+	glVertex2f(-2.1, 17.3);
+	glVertex2f(-3.3, 11.3);
+	glVertex2f(-2, 11.3);
+	glVertex2f(-3.3, 5.3);
+	glVertex2f(-1.8, 5.3);
+	glVertex2f(-3.3, -1.3);
+	glVertex2f(-1.6, -1.3);
+	glVertex2f(-3.3, -8);
+	glVertex2f(-1.5, -8);
+	glEnd();
+
 	glLineWidth(3);
 	glBegin(GL_LINES);
 	glColor3f(0.1, 0.1, 0.1);
@@ -807,6 +932,18 @@ void display() {
 	GLUquadricObj* objj1 = gluNewQuadric();
 	gluPartialDisk(objj1, 0, 1.55, 50, 90, 90, -180);
 	glPopMatrix();
+
+    //glColor3f(1,0.5,0);
+
+	glBegin(GL_POLYGON);
+	for(int i=0;i<360;i++)
+    {
+        float angle=i*3.14/180;
+        float x=1.45*cos(angle)+17.48;
+        float y=3*sin(angle)+3.9;
+        glVertex2f(x,y);
+	}
+	glEnd();
 	glFlush();
 }
 
