@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1685192585 source:c:\users\siru\documents\3rd year 2 sem\graphics lab\axum_oblisk_proj\main.cpp
+1685226987 source:c:\users\siru\documents\3rd year 2 sem\graphics lab\axum_oblisk_proj\main.cpp
 	<windows.h>
 	<GL/glut.h>
 	<math.h>
