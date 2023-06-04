@@ -1,19 +1,55 @@
 #include<windows.h>
 #include<GL/glut.h>
 #include<math.h>
-
+float tx = -20;
+float ty = 26;
 void init() {
 	glClearColor(0.4, 0.8, 0.9, 1);
 	glMatrixMode(GL_PROJECTION);
-	glOrtho(-40, 40, -40, 41, -40, 40);
+	glOrtho(-40, 40, -40, 43, -40, 40);
+}
+
+void sun(int w) {
+	glutTimerFunc(200, sun, 0);
+	glutPostRedisplay();
+	if ((tx <= 15) && (ty <= 42))
+	{
+		tx += 0.32;
+		ty += 0.15;
+	}
+	else if ((ty >= 24))
+	{
+		tx += 0.35;
+		ty -= 0.15;
+	}
+	else
+	{
+		tx = -25;
+		ty = 26;
+	}
 }
 
 void display() {
 	glClear(GL_COLOR_BUFFER_BIT);
+	//sun
+	glPushMatrix();
+	glTranslatef(tx, ty, 0);
+	glColor3f(1, 0.9, 0.8);
+	glBegin(GL_POLYGON);
+	for (int i = 0; i < 360; i++)
+	{
+		float angle = i * 3.14 / 180;
+		float x = 1.45 * cos(angle) - 17.48;
+		float y = 2.5 * sin(angle) - 1;
+		glVertex2f(x, y);
+	}
+	glEnd();
+	glPopMatrix();
+	//axum
 	glColor3f(0.46, 0.63, 0.46);
 	glRectf(-40, -16, 40, -43);
 
-	glColor3f(0.460, 0.630, 0.468);
+	glColor3f(0.60, 0.630, 0.468);
 	glRectf(-40, -23, 40, -44);
 	//tree two
 	glColor3f(0, 0.6, 0);
@@ -41,8 +77,6 @@ void display() {
 	glRectf(-10, -21, -6.5, -31);
 	glRectf(-12, -28, -7, -44);
 
-	//glColor3f(1,0.5,1);
-	//glRectf(7,-28,12,-44);
 	glBegin(GL_QUADS);
 	//third side
 	glColor3f(0.25, 0.25, 0.25);
@@ -527,8 +561,8 @@ void display() {
 
 	glBegin(GL_QUADS);//very small
 	glColor3f(0.840, 0.722, 0.722);//left
-	glVertex2f(-14.5, -24);//1st
-	glVertex2f(-14.5, -18);
+	glVertex2f(-16, -24);//1st
+	glVertex2f(-16, -18);
 	glVertex2f(-17, -18);
 	glVertex2f(-17, -24);
 	glColor3f(0.7, 0.7, 0.7);//top
@@ -569,7 +603,7 @@ void display() {
 	glutSolidCone(1, 2, 20, 20);
 	glTranslatef(-3, 2.1, 0);
 	glutSolidCone(1, 2, 20, 20);
-	glTranslatef(-2.5, 2.1, 0);
+	glTranslatef(-3, 2.1, 0);
 	glutSolidCone(1, 2, 20, 20);
 	glPopMatrix();
 
@@ -835,7 +869,6 @@ void display() {
 	glColor3f(0.620, 0.477, 0.477);
 	glRectf(-2.95, -16.5, -1.65, -15.2);
 	glRectf(-2.95, -20.7, -1.65, -19.4);
-
 	//lines on the left side of the biggest
 	glLineWidth(2);
 	glBegin(GL_LINES);
@@ -1247,10 +1280,114 @@ void display() {
 	{
 		float angle = i * 3.14 / 180;
 		float x = 1.45 * cos(angle) + 17.48;
-		float y = 3 * sin(angle) + 3.9;
+		float y = 2.5 * sin(angle) + 3.9;
 		glVertex2f(x, y);
 	}
 	glEnd();
+	//thin lines 1
+	glLineWidth(0.2);
+	glColor3f(0.1, 0.1, 0.1);
+	glBegin(GL_LINES);
+	//vertical
+	glVertex2f(-6.4, -29);
+	glVertex2f(-6.4, -40);
+	glVertex2f(-5.3, -29);
+	glVertex2f(-5.3, -40);
+	glVertex2f(-4.1, -29);
+	glVertex2f(-4.1, -40);
+	glVertex2f(-2, -29);
+	glVertex2f(-2, -40);
+	glVertex2f(-0.8, -29);
+	glVertex2f(-0.8, -40);
+	glVertex2f(0.3, -29);
+	glVertex2f(0.3, -40);
+	//horizontal
+	glVertex2f(-7.5, -31.2);
+	glVertex2f(1.4, -31.2);
+	glVertex2f(-7.5, -33.2);
+	glVertex2f(1.4, -33.2);
+	glVertex2f(-7.5, -35.2);
+	glVertex2f(1.4, -35.2);
+	glVertex2f(-7.5, -37.2);
+	glVertex2f(1.4, -37.2);
+	glVertex2f(-7.5, -39.2);
+	glVertex2f(1.4, -39.2);
+	glEnd();
+	glPushMatrix();
+	glTranslatef(9.2, 0, 0);
+	//thin lines 2
+	glLineWidth(0.2);
+	glBegin(GL_LINES);
+	//vertical
+	glVertex2f(-6.4, -29);
+	glVertex2f(-6.4, -40);
+	glVertex2f(-5.3, -29);
+	glVertex2f(-5.3, -40);
+	glVertex2f(-4.1, -29);
+	glVertex2f(-4.1, -40);
+	glVertex2f(-2, -29);
+	glVertex2f(-2, -40);
+	glVertex2f(-0.8, -29);
+	glVertex2f(-0.8, -40);
+	glVertex2f(0.3, -29);
+	glVertex2f(0.3, -40);
+	glVertex2f(1.3, -29);
+	glVertex2f(1.3, -40);
+	//horizontal
+	glVertex2f(-7.5, -31.2);
+	glVertex2f(2.4, -31.2);
+	glVertex2f(-7.5, -33.2);
+	glVertex2f(2.4, -33.2);
+	glVertex2f(-7.5, -35.2);
+	glVertex2f(2.4, -35.2);
+	glVertex2f(-7.5, -37.2);
+	glVertex2f(2.4, -37.2);
+	glVertex2f(-7.5, -39.2);
+	glVertex2f(2.4, -39.2);
+	glEnd();
+	glPopMatrix();
+	//vertical
+	glLineWidth(4);
+	glColor3f(0.2, 0.3, 0.3);
+	glBegin(GL_LINES);
+	glVertex2f(-7.8, -29);
+	glVertex2f(-7.8, -40);
+	glVertex2f(-7.5, -29);
+	glVertex2f(-7.5, -40);
+	glVertex2f(-3, -29);
+	glVertex2f(-3, -40);
+	glVertex2f(1.7, -29);
+	glVertex2f(1.7, -40);
+	glVertex2f(1.4, -29);
+	glVertex2f(1.4, -40);
+	glVertex2f(6.1, -29);
+	glVertex2f(6.1, -40);
+	glVertex2f(11.5, -29);
+	glVertex2f(11.5, -40);
+	glVertex2f(11.8, -29);
+	glVertex2f(11.8, -40);
+
+	glVertex2f(-7.5, -29.2);
+	glVertex2f(1.4, -29.2);
+	glVertex2f(1.7, -29.2);
+	glVertex2f(11.5, -29.2);
+	glEnd();
+
+	glLineWidth(10);
+	glColor3f(0.2, 0.25, 0.3);
+	glBegin(GL_LINES);
+	glVertex2f(-8, -31);
+	glVertex2f(-7.25, -31);
+	glVertex2f(-8, -38);
+	glVertex2f(-7.25, -38);
+	glVertex2f(1.2, -32);
+	glVertex2f(1.93, -32);
+	glVertex2f(11.25, -31);
+	glVertex2f(12, -31);
+	glVertex2f(11.25, -38);
+	glVertex2f(12, -38);
+	glEnd();
+
 	glFlush();
 }
 
@@ -1262,6 +1399,7 @@ int main(int argc, char** argv) {
 	glutCreateWindow("Axum Oblisk");
 	init();
 	glutDisplayFunc(display);
+	glutTimerFunc(0, sun, 0);
 	glutMainLoop();
 	return 0;
 }
