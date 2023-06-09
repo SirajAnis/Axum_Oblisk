@@ -16,7 +16,7 @@ void init() {
 }
 
 void sun(int w) {
-	glutTimerFunc(200, sun, 0);
+	glutTimerFunc(300, sun, 0);
 	glutPostRedisplay();
 	if ((tx <= 15) && (ty <= 42))
 	{
@@ -1315,7 +1315,7 @@ void display() {
 	glPopMatrix();
 
 	glPushMatrix();
-	glColor3f(0.689, 0.895, 0.970);
+	glColor3f(0.501, 0.792, 0.850);
 	glTranslatef(11.5, 3.5, 0);
 	glutSolidCone(1.5, 2, 20, 20);
 	glColor3f(0.750, 0.750, 0.750);
@@ -1590,6 +1590,18 @@ void display() {
 	glRectf(-24, 15, 24, -16);
 	glColor3f(0, 0, 0);
 	glRectf(-5, -18, 24, -21);
+	glLineWidth(2);
+	glColor3f(0, 0, 0);
+	glBegin(GL_LINES);
+	glVertex2f(-40,43);
+	glVertex2f(-24,14.9);
+	glVertex2f(40,43);
+	glVertex2f(24,14.9);
+	glVertex2f(-24,-16);
+	glVertex2f(-40,-44);
+	glVertex2f(24,-16);
+	glVertex2f(40,-44);
+	glEnd();
 
 	glColor3f(1, 0, 0);
 	glRasterPos2i(-8, 12);
